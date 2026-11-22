@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#090d22">
+  <title>DOUBLE DONATE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark"><span>Ｄ</span><i>✦</i></div>
+        <div><div class="brand-name">DOUBLE <b>DONATE</b></div><div class="brand-sub">Raqamli xizmatlar do‘koni</div></div>
+      </div>
+      <button class="icon-btn" id="noticeBtn" aria-label="Bildirishnomalar">♧</button>
+    </header>
+
+    <main>
+      <section class="page active" id="homePage">
+        <div class="balance-card">
+          <div><span class="muted">Hamyon balansi</span><div class="balance-value"><span id="balance">0</span> <small>so‘m</small></div><span class="tiny muted">Xaridlar uchun balansingiz</span></div>
+          <button class="primary-btn compact" data-page="topupPage">＋ To‘ldirish</button>
+          <div class="balance-glow"></div>
+        </div>
+
+        <div class="vip-banner">
+          <div class="vip-icon">♛</div>
+          <div class="vip-copy"><span>✧ MAXSUS TAKLIF</span><strong>DOUBLE VIP</strong><small>Bonus va maxsus chegirmalar</small></div>
+          <button class="outline-btn" data-category="Telegram Premium">Ko‘rish</button>
+        </div>
+
+        <div class="section-heading"><div><span class="eyebrow">KATALOG</span><h2>Xizmatlar</h2></div><span class="count-pill">10 ta xizmat</span></div>
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Xizmat qidirish..."><kbd>⌘ K</kbd></label>
+        <div class="category-grid" id="categoryGrid">
+          <button class="category-card" data-category="Telegram Stars"><span class="service-icon stars">⭐</span><b>Telegram Stars</b><small>Yulduzlar sotib olish</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Telegram Premium"><span class="service-icon premium">♛</span><b>Telegram Premium</b><small>Tariflar va muddatlar</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Virtual raqamlar"><span class="service-icon numbers">▣</span><b>Virtual raqamlar</b><small>Telegram uchun raqamlar</small><span class="card-arrow">↗</span></button>
+          <button class="category-card" data-category="Telegram Gifts"><span class="service-icon gifts">🎁</span><b>Telegram Gifts</b><small>Raqamli sovg‘alar</small><span class="card-arrow">↗</span></button>
+        </div>
+
+        <div class="section-heading game-heading"><div><span class="eyebrow">GAMING</span><h2>O‘yinlar</h2></div></div>
+        <div class="game-grid" id="gameGrid">
+          <button class="game-card" data-category="PUBG Mobile"><span class="game-logo pubg">PUBG</span><span><b>PUBG Mobile</b><small>UC paketlari</small></span><span class="card-arrow">↗</span></button>
+          <button class="game-card" data-category="Free Fire"><span class="game-logo ff">FF</span><span><b>Free Fire</b><small>Diamonds</small></span><span class="card-arrow">↗</span></button>
+          <button class="game-card" data-category="Mobile Legends"><span class="game-logo ml">ML</span><span><b>Mobile Legends</b><small>Diamonds</small></span><span class="card-arrow">↗</span></button>
+          <button class="game-card" data-category="Roblox"><span class="game-logo roblox">R</span><span><b>Roblox</b><small>Robux</small></span><span class="card-arrow">↗</span></button>
+          <button class="game-card" data-category="Steam"><span class="game-logo steam">S</span><span><b>Steam</b><small>Hamyonni to‘ldirish</small></span><span class="card-arrow">↗</span></button>
+          <button class="game-card" data-category="Minecraft"><span class="game-logo mc">M</span><span><b>Minecraft</b><small>Minecoin / xizmatlar</small></span><span class="card-arrow">↗</span></button>
+        </div>
+        <p class="disclaimer">Narxlar va buyurtma bajarilishi backend ulangandan keyin faollashadi.</p>
+      </section>
+
+      <section class="page" id="historyPage">
+        <div class="page-title"><span class="eyebrow">FAOLIYAT</span><h1>Tarix</h1><p>Buyurtma va to‘lovlaringiz</p></div>
+        <div class="tabs"><button class="tab active">Barchasi</button><button class="tab">Buyurtmalar</button><button class="tab">To‘lovlar</button></div>
+        <div class="empty-state"><div class="empty-icon">◷</div><b>Hozircha yozuvlar yo‘q</b><span>Buyurtmalaringiz shu yerda ko‘rinadi</span></div>
+      </section>
+
+      <section class="page" id="profilePage">
+        <div class="profile-head"><div class="avatar" id="avatar">D</div><div><h2 id="profileName">DOUBLE DONATE</h2><span class="muted" id="profileHandle">@telegram_user</span></div><span class="verified">✓</span></div>
+        <div class="profile-balance"><span class="muted">Hamyon balansi</span><strong><span id="profileBalance">0</span> so‘m</strong><button class="primary-btn" data-page="topupPage">＋ To‘ldirish</button></div>
+        <div class="menu-list">
+          <button class="menu-row" data-page="historyPage"><span class="menu-icon">▤</span> Buyurtmalarim <span>›</span></button>
+          <button class="menu-row" id="promoBtn"><span class="menu-icon">◇</span> Promokod <span>›</span></button>
+          <button class="menu-row" id="helpBtn"><span class="menu-icon">?</span> Yordam <span>›</span></button>
+          <button class="menu-row" id="adminBtn"><span class="menu-icon">⚙</span> Admin panel <span>›</span></button>
+        </div>
+        <p class="disclaimer">Admin panel hozircha namoyish rejimida. Haqiqiy admin huquqi serverda tekshirilishi shart.</p>
+      </section>
+
+      <section class="page" id="topupPage">
+        <div class="page-title back-title"><button class="back-btn" data-page="homePage">←</button><div><h1>Hamyonni to‘ldirish</h1><p>To‘lov usulini tanlang</p></div></div>
+        <div class="wallet-preview"><span>Joriy balans</span><b><span id="topupBalance">0</span> so‘m</b></div>
+        <label class="field-label" for="topupAmount">Summa (so‘m)</label>
+        <input class="big-input" id="topupAmount" type="number" min="5000" step="1000" placeholder="Masalan, 50000">
+        <div class="amount-chips"><button data-amount="10000">10 000</button><button data-amount="25000">25 000</button><button data-amount="50000">50 000</button><button data-amount="100000">100 000</button></div>
+        <div class="payment-list">
+          <button class="payment-option selected" data-method="Telegram Stars"><span class="payment-symbol">⭐</span><span><b>Telegram Stars</b><small>Telegram orqali xavfsiz to‘lov</small></span><span class="radio-dot"></span></button>
+          <button class="payment-option" data-method="Click / Payme"><span class="payment-symbol">₮</span><span><b>Click / Payme</b><small>Backend integratsiyasidan keyin</small></span><span class="radio-dot"></span></button>
+        </div>
+        <button class="primary-btn full" id="topupSubmit">Davom etish <span>→</span></button>
+        <p class="center-note">Demo: bu sahifa hozircha haqiqiy pul yechmaydi va balansni oshirmaydi.</p>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-page="homePage"><span>⌂</span><small>Bosh sahifa</small></button>
+      <button class="nav-item" data-page="historyPage"><span>◷</span><small>Tarix</small></button>
+      <button class="nav-item" data-page="profilePage"><span>♙</span><small>Profil</small></button>
+    </nav>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">×</button>
+      <div class="modal-symbol" id="modalSymbol">⭐</div>
+      <span class="eyebrow">DOUBLE DONATE</span>
+      <h2 id="modalTitle">Telegram Stars</h2>
+      <p id="modalDescription">Kerakli paketni tanlang</p>
+      <label class="field-label" id="userFieldLabel" for="targetInput">Telegram username</label>
+      <input class="big-input" id="targetInput" placeholder="@username">
+      <div class="field-label">Paketni tanlang</div>
+      <div class="package-grid" id="packageGrid"></div>
+      <div class="price-line"><span>Taxminiy narx</span><b id="estimatedPrice">Narx backendda belgilanadi</b></div>
+      <button class="primary-btn full" id="orderSubmit">Buyurtma berish <span>→</span></button>
+      <p class="center-note">Buyurtma va to‘lov haqiqiy ishlashi uchun server integratsiyasi kerak.</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
